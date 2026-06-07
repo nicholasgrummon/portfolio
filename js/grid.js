@@ -56,3 +56,72 @@ function renderProjectGrid(category, containerSelector) {
     container.appendChild(empty);
   }
 }
+
+/**
+ * Renders one clickable "bar" per project category on the landing page —
+ * each shows a collage of that category's cover photos and links through
+ * to its grid page. Add a fourth category here (key/title/description/href)
+ * if you ever introduce a new one in projects-data.js.
+ */
+const PROJECT_CATEGORIES = [
+  {
+    key: "design",
+    title: "Design Projects",
+    description: "Full design → build → test engineering challenges, including capstone and senior design work.",
+    href: "design-projects.html",
+  },
+  {
+    key: "software",
+    title: "Software Projects",
+    description: "Code-focused builds — apps, tools, sites, and libraries — with source and live-demo links.",
+    href: "software-projects.html",
+  },
+  {
+    key: "maker",
+    title: "Maker Projects",
+    description: "Simpler, build-oriented projects made for the love of hands-on craft and fabrication.",
+    href: "maker-projects.html",
+  },
+];
+
+const SHOWCASE_COLLAGE_SIZE = 4;
+
+function renderCategoryShowcase(containerSelector) {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
+
+  PROJECT_CATEGORIES.forEach((category) => {
+    const projects = PROJECTS.filter((project) => project.category === category.key);
+    if (projects.length === 0) return;
+
+    const bar = document.createElement("a");
+    bar.className = "category-bar";
+    bar.href = category.href;
+
+    const collage = document.createElement("div");
+    collage.className = "category-bar__collage";
+    projects.slice(0, SHOWCASE_COLLAGE_SIZE).forEach((project) => {
+      const cover = useImageWithFallback(document.createElement("img"));
+      cover.src = project.cover;
+      cover.alt = project.title;
+      collage.appendChild(cover);
+    });
+
+    const body = document.createElement("div");
+    body.className = "category-bar__body";
+
+    const title = document.createElement("h3");
+    title.textContent = category.title;
+
+    const description = document.createElement("p");
+    description.textContent = category.description;
+
+    const cta = document.createElement("span");
+    cta.className = "category-bar__cta";
+    cta.textContent = `Browse ${category.title} →`;
+
+    body.append(title, description, cta);
+    bar.append(collage, body);
+    container.appendChild(bar);
+  });
+}

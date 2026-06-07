@@ -50,6 +50,11 @@ update the matching `cover` and `gallery` paths for that project in
 - Reasonable web sizes (around 1600px on the long edge, JPG/PNG/WebP) keep the site fast.
 - Your headshot/avatar goes at `assets/images/avatar.jpg` (shown as a circle on the About section).
 - Your résumé PDF goes at `assets/resume/resume.pdf` (linked from the "Download Résumé" button).
+- The landing page's **"Projects" showcase** (the clickable bars above Skills)
+  automatically pulls each category's collage from the *first four* projects'
+  `cover` images, in the order they appear in `js/projects-data.js` — so the
+  most important/recent work in each category should go near the top of its
+  group in that file. Square-ish (1:1) covers collage most cleanly there.
 
 ## 3. Editing project text
 

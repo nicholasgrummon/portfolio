@@ -90,6 +90,27 @@
       </div>
     </section>
 
+    <!-- ============ PROJECTS SHOWCASE ============ -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="page-heading">
+          <h2>Projects</h2>
+          <p>
+            A quick look at the kinds of work I do — click into any
+            category below to browse the full collection.
+          </p>
+        </div>
+
+        <!--
+          Bars below render automatically from js/projects-data.js —
+          one per category, each showing a collage of that category's
+          cover photos and linking to its grid page. Nothing to edit
+          here when projects are added or changed.
+        -->
+        <div class="category-showcase" id="category-showcase"></div>
+      </div>
+    </section>
+
     <!-- ============ SKILLS ============ -->
     <section id="skills" class="section">
       <div class="container">
@@ -150,7 +171,10 @@
     </div>
   </footer>
 
+  <script src="js/projects-data.js"></script>
+  <script src="js/grid.js"></script>
   <script>
+    renderCategoryShowcase("#category-showcase");
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
