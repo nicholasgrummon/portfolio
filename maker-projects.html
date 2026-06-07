@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maker Projects — [Your Name]</title>
+  <meta name="description" content="Build-focused maker projects — hands-on fabrication and craft." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html">[Your Name]</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="design-projects.html">Design Projects</a>
+        <a href="maker-projects.html" class="is-active">Maker Projects</a>
+        <a href="index.html#skills">Skills</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="page-heading">
+          <h1>Maker Projects</h1>
+          <p>
+            Simpler, build-oriented projects made for the love of making —
+            things like furniture, turned pieces, and other hands-on builds
+            where the focus is craft and execution rather than a full
+            engineering process.
+          </p>
+        </div>
+
+        <!--
+          Cards below render automatically from js/projects-data.js.
+          To add a project: add an entry with category "maker" to that
+          file — no HTML to edit here. See CONTENT_GUIDE.md.
+        -->
+        <div class="project-grid" id="project-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>&copy; <span id="year"></span> [Your Name]. Built with HTML &amp; CSS, hosted on GitHub Pages.</p>
+      <ul class="social-links">
+        <li><a href="https://github.com/[your-username]">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/[your-username]">LinkedIn</a></li>
+        <li><a href="mailto:[you@example.com]">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/projects-data.js"></script>
+  <script src="js/grid.js"></script>
+  <script>
+    renderProjectGrid("maker", "#project-grid");
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

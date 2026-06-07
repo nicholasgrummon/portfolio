@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project — [Your Name]</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html">[Your Name]</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="design-projects.html">Design Projects</a>
+        <a href="maker-projects.html">Maker Projects</a>
+        <a href="index.html#skills">Skills</a>
+      </nav>
+    </div>
+  </header>
+
+  <!--
+    This is a single template shared by every project. Its content is
+    rendered entirely by js/project-page.js based on the ?slug= value
+    in the URL — e.g. project.html?slug=chess-set — using the matching
+    entry in js/projects-data.js. There's nothing to edit on this page
+    itself when adding a new project.
+  -->
+  <main>
+    <div class="container" id="project-root"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>&copy; <span id="year"></span> [Your Name]. Built with HTML &amp; CSS, hosted on GitHub Pages.</p>
+      <ul class="social-links">
+        <li><a href="https://github.com/[your-username]">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/[your-username]">LinkedIn</a></li>
+        <li><a href="mailto:[you@example.com]">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/projects-data.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/project-page.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

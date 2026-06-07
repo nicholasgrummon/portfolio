@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Your Name] — Engineering Portfolio</title>
+  <meta name="description" content="[Your Name] — engineering portfolio: design projects, maker projects, skills, and experience." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-logo" href="index.html">[Your Name]</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html#about" class="is-active">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="design-projects.html">Design Projects</a>
+        <a href="maker-projects.html">Maker Projects</a>
+        <a href="index.html#skills">Skills</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section hero">
+      <div class="container hero__inner">
+        <img
+          class="hero__avatar"
+          src="assets/images/avatar.jpg"
+          alt="[Your Name]"
+          onerror="this.src='assets/placeholders/photo-placeholder.svg'; this.classList.add('is-placeholder');"
+        />
+        <div class="hero__content">
+          <p class="hero__eyebrow">[Your tagline — e.g., Mechanical Engineer · Maker · Builder]</p>
+          <h1 class="hero__title">Hi, I'm [Your Name].</h1>
+          <p class="hero__bio">
+            [Two or three sentences introducing yourself: your engineering background,
+            the kinds of problems you like to work on — spanning design, fabrication,
+            and code — and what you're looking for next, e.g. an internship,
+            full-time role, or research collaboration.]
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="design-projects.html">See My Work</a>
+            <a class="button button--ghost" href="#experience">View Experience</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section__heading">
+          <h2>Experience</h2>
+          <a class="button button--ghost" href="assets/resume/resume.pdf" download>
+            Download Résumé (PDF)
+          </a>
+        </div>
+
+        <ol class="timeline">
+          <li class="timeline__item">
+            <p class="timeline__period">[20XX — Present]</p>
+            <h3 class="timeline__title">[Job Title], [Company Name]</h3>
+            <p class="timeline__details">
+              [One or two lines on your role, responsibilities, and any notable
+              outcomes — e.g. a system you designed, a process you improved.]
+            </p>
+          </li>
+          <li class="timeline__item">
+            <p class="timeline__period">[20XX — 20XX]</p>
+            <h3 class="timeline__title">[Internship Title], [Company Name]</h3>
+            <p class="timeline__details">
+              [One or two lines describing the internship — what you worked on
+              and what you learned.]
+            </p>
+          </li>
+          <li class="timeline__item">
+            <p class="timeline__period">[20XX — 20XX]</p>
+            <h3 class="timeline__title">[Degree], [School Name]</h3>
+            <p class="timeline__details">
+              [Major/concentration, relevant coursework, honors, or activities
+              worth highlighting.]
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section__heading">
+          <h2>Skills</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Design &amp; Modeling</h3>
+            <ul class="chip-list">
+              <li class="chip">[e.g., SolidWorks]</li>
+              <li class="chip">[e.g., Fusion 360]</li>
+              <li class="chip">[e.g., GD&amp;T]</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Programming &amp; Software</h3>
+            <ul class="chip-list">
+              <li class="chip">[e.g., Python]</li>
+              <li class="chip">[e.g., C++]</li>
+              <li class="chip">[e.g., MATLAB]</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Fabrication &amp; Manufacturing</h3>
+            <ul class="chip-list">
+              <li class="chip">[e.g., CNC Machining]</li>
+              <li class="chip">[e.g., 3D Printing]</li>
+              <li class="chip">[e.g., Wood &amp; Metal Lathe]</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Testing &amp; Analysis</h3>
+            <ul class="chip-list">
+              <li class="chip">[e.g., FEA]</li>
+              <li class="chip">[e.g., DOE]</li>
+              <li class="chip">[e.g., Data Acquisition]</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>&copy; <span id="year"></span> [Your Name]. Built with HTML &amp; CSS, hosted on GitHub Pages.</p>
+      <ul class="social-links">
+        <li><a href="https://github.com/[your-username]">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/[your-username]">LinkedIn</a></li>
+        <li><a href="mailto:[you@example.com]">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
