@@ -15,16 +15,19 @@
       <p class="project-missing">
         We couldn't find that project.
         <a href="design-projects.html">Back to Design Projects</a> ·
+        <a href="software-projects.html">Back to Software Projects</a> ·
         <a href="maker-projects.html">Back to Maker Projects</a>
       </p>
     `;
     return;
   }
 
-  const isDesign = project.category === "design";
-  const categoryLabel = isDesign ? "Design Project" : "Maker Project";
-  const backHref = isDesign ? "design-projects.html" : "maker-projects.html";
-  const backLabel = isDesign ? "Design Projects" : "Maker Projects";
+  const CATEGORY_INFO = {
+    design: { label: "Design Project", gridHref: "design-projects.html", gridLabel: "Design Projects" },
+    software: { label: "Software Project", gridHref: "software-projects.html", gridLabel: "Software Projects" },
+    maker: { label: "Maker Project", gridHref: "maker-projects.html", gridLabel: "Maker Projects" },
+  };
+  const { label: categoryLabel, gridHref: backHref, gridLabel: backLabel } = CATEGORY_INFO[project.category];
 
   document.title = `${project.title} — Engineering Portfolio`;
 
@@ -58,6 +61,48 @@
   summary.textContent = project.summary;
 
   heroBody.append(back, badge, title, summary);
+
+  // Tech stack chips (optional — shown if project.techStack is non-empty)
+  if (project.techStack && project.techStack.length > 0) {
+    const stack = document.createElement("ul");
+    stack.className = "chip-list project-tech-stack";
+    project.techStack.forEach((tech) => {
+      const chip = document.createElement("li");
+      chip.className = "chip";
+      chip.textContent = tech;
+      stack.appendChild(chip);
+    });
+    heroBody.appendChild(stack);
+  }
+
+  // Repo / demo link buttons (optional — shown if project.links has entries)
+  if (project.links && (project.links.repo || project.links.demo)) {
+    const linksRow = document.createElement("div");
+    linksRow.className = "project-links";
+
+    if (project.links.repo) {
+      const repoLink = document.createElement("a");
+      repoLink.className = "button button--ghost";
+      repoLink.href = project.links.repo;
+      repoLink.target = "_blank";
+      repoLink.rel = "noopener";
+      repoLink.textContent = "View Code ↗";
+      linksRow.appendChild(repoLink);
+    }
+
+    if (project.links.demo) {
+      const demoLink = document.createElement("a");
+      demoLink.className = "button button--primary";
+      demoLink.href = project.links.demo;
+      demoLink.target = "_blank";
+      demoLink.rel = "noopener";
+      demoLink.textContent = "Live Demo ↗";
+      linksRow.appendChild(demoLink);
+    }
+
+    heroBody.appendChild(linksRow);
+  }
+
   hero.append(heroImage, heroBody);
 
   // ---- Write-up sections ------------------------------------------------

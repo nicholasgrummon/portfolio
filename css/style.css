@@ -436,9 +436,25 @@ h3 {
   color: var(--color-accent-dark);
 }
 
+.badge--software {
+  background: #e8ecf7;
+  color: #3a4d8f;
+}
+
 .badge--maker {
   background: #f3e9df;
   color: #8a5a2b;
+}
+
+.project-tech-stack {
+  margin: 4px 0 4px;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
 }
 
 .project-hero {

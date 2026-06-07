@@ -12,18 +12,18 @@ Open each HTML file and search for square-bracket placeholders like
 
 - `index.html` — your name, tagline, bio, experience timeline, skills, and
   social links (GitHub/LinkedIn/email) in the header/footer.
-- `design-projects.html` / `maker-projects.html` — the intro paragraph at
-  the top of each grid page.
+- `design-projects.html` / `software-projects.html` / `maker-projects.html`
+  — the intro paragraph at the top of each grid page.
 - `js/projects-data.js` — every project's title, summary, and write-up
   text (see section 3 below).
 
 Your name and social links appear in the `<header>`/`<footer>` of every
 page, so update them consistently across `index.html`, `design-projects.html`,
-`maker-projects.html`, and `project.html`.
+`software-projects.html`, `maker-projects.html`, and `project.html`.
 
 ## 2. Adding your photos
 
-Each project has its own folder under `assets/projects/<design|maker>/<slug>/`
+Each project has its own folder under `assets/projects/<design|software|maker>/<slug>/`
 containing a cover photo and a `gallery/` subfolder for additional photos.
 **Until you add a file at the expected path, the site automatically shows a
 "Photo coming soon" placeholder graphic** — so you can drop images in at any
@@ -79,8 +79,38 @@ edit the text fields directly:
 You can rename, add, remove, or reorder `sections` entries freely — the
 detail page just renders whatever is in the array, in order. Design projects
 are pre-filled with a Challenge → Approach → Build → Test → Outcome structure
-(matching a full engineering process); maker projects use a simpler
-Build → Result structure. Adjust either to fit a specific project.
+(matching a full engineering process); software and maker projects use a
+simpler Build → Result structure. Adjust any of these to fit a specific
+project.
+
+### Software projects: tech stack & links
+
+Software projects support two extra, **optional** fields that render on the
+detail page only (cards stay simple/consistent across all categories):
+
+```js
+{
+  slug: "software-project-1",
+  category: "software",
+  // ...title, summary, cover, gallery, sections as usual...
+  techStack: ["Python", "React", "PostgreSQL"],   // shown as chips
+  links: {
+    repo: "https://github.com/you/project-name",  // → "View Code" button
+    demo: "https://your-demo-url.com",            // → "Live Demo" button
+  },
+}
+```
+
+- `techStack` — list whatever languages, frameworks, or tools are most
+  relevant; shown as a row of chips under the project summary.
+- `links` — both `repo` and `demo` are independently optional. Omit either
+  key (e.g. a CLI tool with no live demo) and that button simply won't
+  appear. Omit the whole `links` object to hide both.
+
+Nothing stops you from adding `techStack`/`links` to a Design or Maker
+project too (e.g. a robotics project with an embedded-software repo) —
+the detail page renders them whenever they're present, regardless of
+category.
 
 ## 4. Adding a brand-new project
 
@@ -89,17 +119,19 @@ work grows:
 
 1. **Create an image folder** for it:
    ```
-   assets/projects/<design or maker>/<your-new-slug>/
-   assets/projects/<design or maker>/<your-new-slug>/gallery/
+   assets/projects/<design, software, or maker>/<your-new-slug>/
+   assets/projects/<design, software, or maker>/<your-new-slug>/gallery/
    ```
    (`<your-new-slug>` should be lowercase with hyphens, e.g. `drone-chassis`.)
 
 2. **Add a new entry to `PROJECTS`** in `js/projects-data.js`. The easiest
-   way is to copy an existing object of the same category (`design` or
-   `maker`), paste it at the end of the array, and update:
+   way is to copy an existing object of the same category (`design`,
+   `software`, or `maker`), paste it at the end of the array, and update:
    - `slug` — must be unique and match your folder name
-   - `category` — `"design"` or `"maker"` — controls which grid it shows in
+   - `category` — `"design"`, `"software"`, or `"maker"` — controls which
+     grid it shows in
    - `title`, `summary`, `cover`, `gallery`, and `sections`
+   - for software projects: `techStack` and `links` too (see section 3)
 
 3. **Drop in your photos** following the same `cover.jpg` / `gallery/01.jpg`
    convention (or update the paths in your new entry to match whatever

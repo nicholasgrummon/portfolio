@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project — [Your Name]</title>
+  <title>Software Projects — [Your Name]</title>
+  <meta name="description" content="Software projects — apps, tools, sites, and other code-focused builds." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -15,22 +16,33 @@
         <a href="index.html#about">About</a>
         <a href="index.html#experience">Experience</a>
         <a href="design-projects.html">Design Projects</a>
-        <a href="software-projects.html">Software Projects</a>
+        <a href="software-projects.html" class="is-active">Software Projects</a>
         <a href="maker-projects.html">Maker Projects</a>
         <a href="index.html#skills">Skills</a>
       </nav>
     </div>
   </header>
 
-  <!--
-    This is a single template shared by every project. Its content is
-    rendered entirely by js/project-page.js based on the ?slug= value
-    in the URL — e.g. project.html?slug=chess-set — using the matching
-    entry in js/projects-data.js. There's nothing to edit on this page
-    itself when adding a new project.
-  -->
   <main>
-    <div class="container" id="project-root"></div>
+    <section class="section">
+      <div class="container">
+        <div class="page-heading">
+          <h1>Software Projects</h1>
+          <p>
+            Code-focused projects — apps, tools, sites, and libraries.
+            Each one links out to its source code and, where available,
+            a live demo.
+          </p>
+        </div>
+
+        <!--
+          Cards below render automatically from js/projects-data.js.
+          To add a project: add an entry with category "software" to
+          that file — no HTML to edit here. See CONTENT_GUIDE.md.
+        -->
+        <div class="project-grid" id="project-grid"></div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -46,8 +58,8 @@
 
   <script src="js/projects-data.js"></script>
   <script src="js/grid.js"></script>
-  <script src="js/project-page.js"></script>
   <script>
+    renderProjectGrid("software", "#project-grid");
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
