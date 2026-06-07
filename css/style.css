@@ -546,17 +546,11 @@ h3 {
 
 .project-hero__image {
   width: 100%;
-  max-height: 520px;
-  object-fit: cover;
-  border-radius: var(--radius);
-  border: 1px solid var(--color-border);
-}
-
-.project-hero__image.is-placeholder {
+  height: 440px;
   object-fit: contain;
   background: var(--color-accent-soft);
-  padding: 32px;
-  max-height: 360px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
 }
 
 .project-title {
@@ -631,6 +625,58 @@ h3 {
   transform: scale(1.04);
 }
 
+/* Video tiles — poster frame + play badge; click reveals controls and
+   plays in place. See buildVideoTile() in js/project-page.js. */
+.project-gallery__item--video {
+  position: relative;
+  cursor: pointer;
+}
+
+.project-gallery__item--video video {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: block;
+  object-fit: cover;
+  background: #14181d;
+}
+
+.project-gallery__item--video.is-playing {
+  cursor: auto;
+}
+
+.project-gallery__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding-left: 4px;
+  border-radius: 50%;
+  background: rgba(31, 35, 40, 0.55);
+  color: #ffffff;
+  font-size: 1.05rem;
+  line-height: 1;
+  transition: background var(--transition), transform var(--transition), opacity var(--transition);
+}
+
+.project-gallery__item--video:hover .project-gallery__play {
+  background: var(--color-accent);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.project-gallery__item--video.is-playing .project-gallery__play {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.project-gallery__item--missing {
+  cursor: default;
+}
+
 .project-missing {
   padding: 80px 0;
   text-align: center;
@@ -688,6 +734,10 @@ h3 {
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
+  }
+
+  .project-hero__image {
+    height: 280px;
   }
 
   .hero__actions {

@@ -31,6 +31,88 @@
 
   document.title = `${project.title} — Engineering Portfolio`;
 
+  // Gallery entries are recognized as videos by file extension — just drop
+  // an .mp4 (or .webm/.mov/.m4v/.ogv) path into a project's `gallery` array
+  // and it renders as a click-to-play tile instead of a photo.
+  const VIDEO_EXTENSION_PATTERN = /\.(mp4|webm|mov|m4v|ogv)$/i;
+  const isVideoPath = (path) => VIDEO_EXTENSION_PATTERN.test(path);
+
+  function buildPhotoTile(src, label) {
+    const link = document.createElement("a");
+    link.className = "project-gallery__item";
+    link.href = src;
+    link.target = "_blank";
+    link.rel = "noopener";
+
+    const img = useImageWithFallback(document.createElement("img"));
+    img.src = src;
+    img.alt = label;
+
+    link.appendChild(img);
+    return link;
+  }
+
+  // Shows the video's first frame as a thumbnail with a play badge on top;
+  // clicking reveals native controls and starts playback right in the tile,
+  // so the video plays in the grid rather than navigating away.
+  function buildVideoTile(src, label) {
+    const tile = document.createElement("div");
+    tile.className = "project-gallery__item project-gallery__item--video";
+    tile.setAttribute("role", "button");
+    tile.setAttribute("tabindex", "0");
+    tile.setAttribute("aria-label", `Play video — ${label}`);
+
+    const video = document.createElement("video");
+    video.src = src;
+    video.preload = "metadata";
+    video.muted = true;
+    video.playsInline = true;
+    video.setAttribute("aria-label", label);
+
+    const playBadge = document.createElement("span");
+    playBadge.className = "project-gallery__play";
+    playBadge.setAttribute("aria-hidden", "true");
+    playBadge.textContent = "▶";
+
+    const startPlayback = () => {
+      if (tile.classList.contains("is-playing")) return;
+      tile.classList.add("is-playing");
+      video.controls = true;
+      video.muted = false;
+      video.play();
+    };
+
+    tile.addEventListener("click", startPlayback);
+    tile.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        startPlayback();
+      }
+    });
+
+    // If the file is missing, fall back to the shared placeholder graphic
+    // (same pattern as photos) instead of showing a broken video frame.
+    video.addEventListener(
+      "error",
+      () => {
+        const placeholder = document.createElement("img");
+        placeholder.src = PLACEHOLDER_IMAGE;
+        placeholder.alt = `${label} (coming soon)`;
+        placeholder.classList.add("is-placeholder");
+        tile.replaceChild(placeholder, video);
+        playBadge.remove();
+        tile.classList.add("project-gallery__item--missing");
+        tile.removeAttribute("role");
+        tile.removeAttribute("tabindex");
+        tile.removeAttribute("aria-label");
+      },
+      { once: true }
+    );
+
+    tile.append(video, playBadge);
+    return tile;
+  }
+
   // ---- Hero ------------------------------------------------------------
   const hero = document.createElement("section");
   hero.className = "project-hero";
@@ -135,18 +217,9 @@
     grid.className = "project-gallery__grid";
 
     project.gallery.forEach((src, index) => {
-      const link = document.createElement("a");
-      link.className = "project-gallery__item";
-      link.href = src;
-      link.target = "_blank";
-      link.rel = "noopener";
-
-      const img = useImageWithFallback(document.createElement("img"));
-      img.src = src;
-      img.alt = `${project.title} — photo ${index + 1}`;
-
-      link.appendChild(img);
-      grid.appendChild(link);
+      const isVideo = isVideoPath(src);
+      const label = `${project.title} — ${isVideo ? "video" : "photo"} ${index + 1}`;
+      grid.appendChild(isVideo ? buildVideoTile(src, label) : buildPhotoTile(src, label));
     });
 
     gallery.append(galleryHeading, grid);

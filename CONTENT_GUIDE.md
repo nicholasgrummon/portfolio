@@ -47,6 +47,12 @@ update the matching `cover` and `gallery` paths for that project in
 **Tips:**
 - Cover photos display at a 4:3 ratio — landscape images crop best.
 - Gallery photos also display at 4:3, and link to the full-size image when clicked.
+- **Videos work too** — just list an `.mp4` (or `.webm`/`.mov`/`.m4v`/`.ogv`)
+  path in a project's `gallery` array right alongside its photos, e.g.
+  `assets/projects/design/senior-design/gallery/Clamp_actuates.mp4`. It's
+  detected automatically by file extension — no extra field needed. The tile
+  shows the video's first frame as a thumbnail with a "▶" badge over it, and
+  clicking plays the video right there in the grid (no placeholder image needed).
 - Reasonable web sizes (around 1600px on the long edge, JPG/PNG/WebP) keep the site fast.
 - Your headshot/avatar goes at `assets/images/avatar.jpg` (shown as a circle on the About section).
 - Your résumé PDF goes at `assets/resume/resume.pdf` (linked from the "Download Résumé" button).
