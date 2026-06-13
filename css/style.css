@@ -511,19 +511,12 @@ h3 {
   margin-bottom: 14px;
 }
 
-.badge--design {
+.badge--design,
+.badge--analysis,
+.badge--software,
+.badge--maker {
   background: var(--color-accent-soft);
   color: var(--color-accent-dark);
-}
-
-.badge--software {
-  background: #e8ecf7;
-  color: #3a4d8f;
-}
-
-.badge--maker {
-  background: #f3e9df;
-  color: #8a5a2b;
 }
 
 .project-tech-stack {

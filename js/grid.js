@@ -1,6 +1,7 @@
 /**
  * Renders project cards into a grid container, filtered by category.
- * Used by design-projects.html and maker-projects.html — see the
+ * Used by design-projects.html, analysis-projects.html,
+ * software-projects.html, and maker-projects.html — see the
  * <script> tag at the bottom of each page.
  */
 const PLACEHOLDER_IMAGE = "assets/placeholders/photo-placeholder.svg";
@@ -60,7 +61,7 @@ function renderProjectGrid(category, containerSelector) {
 /**
  * Renders one clickable "bar" per project category on the landing page —
  * each shows a collage of that category's cover photos and links through
- * to its grid page. Add a fourth category here (key/title/description/href)
+ * to its grid page. Add another category here (key/title/description/href)
  * if you ever introduce a new one in projects-data.js.
  */
 const PROJECT_CATEGORIES = [
@@ -69,6 +70,12 @@ const PROJECT_CATEGORIES = [
     title: "Design Projects",
     description: "Full design → build → test engineering challenges, including capstone and senior design work.",
     href: "design-projects.html",
+  },
+  {
+    key: "analysis",
+    title: "Analysis Projects",
+    description: "Computational and data-driven engineering analysis — FEA, CFD, and other simulation studies.",
+    href: "analysis-projects.html",
   },
   {
     key: "software",

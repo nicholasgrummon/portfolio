@@ -15,6 +15,7 @@
       <p class="project-missing">
         We couldn't find that project.
         <a href="design-projects.html">Back to Design Projects</a> ·
+        <a href="analysis-projects.html">Back to Analysis Projects</a> ·
         <a href="software-projects.html">Back to Software Projects</a> ·
         <a href="maker-projects.html">Back to Maker Projects</a>
       </p>
@@ -24,6 +25,7 @@
 
   const CATEGORY_INFO = {
     design: { label: "Design Project", gridHref: "design-projects.html", gridLabel: "Design Projects" },
+    analysis: { label: "Analysis Project", gridHref: "analysis-projects.html", gridLabel: "Analysis Projects" },
     software: { label: "Software Project", gridHref: "software-projects.html", gridLabel: "Software Projects" },
     maker: { label: "Maker Project", gridHref: "maker-projects.html", gridLabel: "Maker Projects" },
   };

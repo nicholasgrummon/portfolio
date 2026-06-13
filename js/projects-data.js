@@ -3,19 +3,19 @@
  * and project detail pages.
  *
  * TO ADD A NEW PROJECT:
- *   1. Create a folder under assets/projects/<design|software|maker>/<your-slug>/
+ *   1. Create a folder under assets/projects/<design|analysis|software|maker>/<your-slug>/
  *      with a cover image and a gallery/ subfolder (see CONTENT_GUIDE.md).
  *   2. Copy one of the objects below, give it a unique `slug`, and fill
  *      in the fields. That's it — it will automatically appear in the
- *      matching grid (design-projects.html, software-projects.html, or
- *      maker-projects.html) and get its own detail page at
- *      project.html?slug=your-slug.
+ *      matching grid (design-projects.html, analysis-projects.html,
+ *      software-projects.html, or maker-projects.html) and get its own
+ *      detail page at project.html?slug=your-slug.
  *
  * FIELD NOTES:
  *   slug       — unique, URL-safe id (lowercase, hyphens). Used in the
  *                project's URL and to match it to its image folder.
- *   category   — "design", "software", or "maker". Controls which grid
- *                it appears in and which badge color/back-link it gets.
+ *   category   — "design", "analysis", "software", or "maker". Controls
+ *                which grid it appears in and which badge/back-link it gets.
  *   title      — shown on the card and as the page heading.
  *   summary    — one or two sentences shown on the card and at the top
  *                of the detail page.
@@ -26,8 +26,9 @@
  *                yet — placeholders will be shown until you add them.
  *   sections   — the write-up, rendered as heading + paragraph blocks in
  *                order. Design projects traditionally use Challenge →
- *                Approach → Build → Test → Outcome; software and maker
- *                projects use a simpler Build → Result. Feel free to
+ *                Approach → Build → Test → Outcome; analysis projects use
+ *                Objective → Method → Results → Conclusion; software and
+ *                maker projects use a simpler Build → Result. Feel free to
  *                adjust headings to fit a particular project.
  *   techStack  — OPTIONAL array of strings shown as chips on the detail
  *                page (e.g. ["Python", "React", "PostgreSQL"]). Omit the
@@ -166,6 +167,30 @@ const PROJECTS = [
       { heading: "Build", body: "Used 3D-printed components and hand tools to assemble frame. Acquired magnetic chess set." },
       { heading: "Test", body: "Validated by playing a variety of moves and captures via the Stockfish game engine." },
       { heading: "Outcome", body: "Earned a top-score of five in Vanderbilt's Mechatronic Faire." },
+    ],
+  },
+
+  /* ============================================================
+     ANALYSIS PROJECTS
+     Computational and data-driven analysis work — FEA, CFD, and
+     other simulation/data studies.
+     ============================================================ */
+  {
+    slug: "analysis-project-1",
+    category: "analysis",
+    title: "[Analysis Project Name]",
+    summary: "[One-line summary for the project card.]",
+    cover: "assets/projects/analysis/analysis-project-1/cover.jpg",
+    gallery: [
+      "assets/projects/analysis/analysis-project-1/gallery/01.jpg",
+      "assets/projects/analysis/analysis-project-1/gallery/02.jpg",
+      "assets/projects/analysis/analysis-project-1/gallery/03.jpg",
+    ],
+    sections: [
+      { heading: "Objective", body: "[What question or problem this analysis set out to answer.]" },
+      { heading: "Method", body: "[Tools, models, and approach used to analyze it.]" },
+      { heading: "Results", body: "[Key findings, data, or outputs from the analysis.]" },
+      { heading: "Conclusion", body: "[What the results mean and what was learned or recommended.]" },
     ],
   },
 
