@@ -254,7 +254,7 @@ const PROJECTS = [
     slug: "ai-anatomy",
     category: "software",
     title: "AI Anatomy",
-    summary: "Recreated foundational AI architecture components - including a neural network, a transformer, and a minimal LLM (TODO) - all without ML libraries.",
+    summary: "Recreated foundational AI architecture components - including a neural network, a transformer, and a minimal LLM - all without ML libraries.",
     cover: "assets/projects/software/ai-anatomy/cover.png",
     gallery: [
       "assets/projects/software/ai-anatomy/gallery/nnn.png",
@@ -262,6 +262,7 @@ const PROJECTS = [
       "assets/projects/software/ai-anatomy/gallery/nnn_ANDfunc.png",
       "assets/projects/software/ai-anatomy/gallery/transformer.png",
       "assets/projects/software/ai-anatomy/gallery/transformer_outs.png",
+
     ],
     techStack: ["Python", "Object-Oriented", "Numpy"],
     links: {
@@ -269,7 +270,7 @@ const PROJECTS = [
       demo: "todo",
     },
     sections: [
-      { heading: "Build", body: "Solved back-propagation equations for training an arbitrary dimensional neural network, leveraged Claude Code to write class structure for a transformer model based on the paper 'Attention is All You Need' (2017), and modified Karpathy's 'minimal LLM' to remove ML dependencies." },
+      { heading: "Build", body: "Solved back-propagation equations for training an arbitrary dimensional neural network, leveraged Claude Code to write class structure for a transformer model based on the paper 'Attention is All You Need' (2017), and modified Karpathy's tiny-stories inference engine to remove ML dependencies." },
       { heading: "Result", body: "Completed all necessary building blocks composing a modern LLM stack." },
     ],
   },
@@ -345,11 +346,11 @@ const PROJECTS = [
     category: "maker",
     title: "Watch Turner",
     summary: "[One-line summary for the project card.]",
-    cover: "assets/projects/maker/watch-turner/cover.JPEG",
+    cover: "assets/projects/maker/watch-turner/cover.jpeg",
     gallery: [
-      "assets/projects/maker/watch-turner/gallery/01.jpg",
-      "assets/projects/maker/watch-turner/gallery/02.jpg",
-      "assets/projects/maker/watch-turner/gallery/03.jpg",
+      "assets/projects/maker/watch-turner/gallery/cinematic.jpeg",
+      "assets/projects/maker/watch-turner/gallery/assembly.jpeg",
+      "assets/projects/maker/watch-turner/gallery/off_normal_mill.jpeg",
     ],
     sections: [
       { heading: "Build", body: "[Materials, tools, and techniques used.]" },
