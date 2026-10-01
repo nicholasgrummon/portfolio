@@ -68,7 +68,7 @@ const PROJECT_CATEGORIES = [
   {
     key: "design",
     title: "Design Projects",
-    description: "Full design → build → test engineering challenges, including capstone and senior design work.",
+    description: "Full design → build → test engineering challenges.",
     href: "design-projects.html",
   },
   {
